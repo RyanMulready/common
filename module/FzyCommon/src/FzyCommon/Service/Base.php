@@ -2,6 +2,7 @@
 namespace FzyCommon\Service;
 
 use FzyCommon\Util\Params;
+use Zend\Log\Logger;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -27,6 +28,11 @@ abstract class Base implements ServiceLocatorAwareInterface
      * @var \Doctrine\ORM\EntityManager
      */
     protected $em;
+
+    /**
+     * @var Logger
+     */
+    protected $logger;
 
     /**
      * Get the application config as a Params object
