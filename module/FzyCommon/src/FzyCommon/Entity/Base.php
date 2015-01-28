@@ -239,39 +239,4 @@ abstract class Base implements BaseInterface
     {
         return $this->flatten();
     }
-
-    /**
-     * @param $logger Logger
-     * @return $this
-     */
-    public function setLogger($logger)
-    {
-        $this->logger = $logger;
-
-        return $this;
-    }
-
-    /**
-     * @return Logger
-     */
-    public function getLogger()
-    {
-        return $this->logger;
-    }
-
-    /**
-     * write to the log if it exists
-     * @param string $logMessage
-     * @param string $logType
-     * @return $this
-     */
-    protected function log($logMessage, $extra = array(), $logType = 'err') {
-        $logTypes = array('emerg', 'alert', 'crit', 'err', 'warn', 'notice', 'info', 'debug');
-        if($this->getLogger()) {
-            $logType = in_array($logType, $logTypes) ? $logType : 'err';
-            call_user_func_array(array($this->getLogger(), $logType), array($logMessage, $extra));
-        }
-
-        return $this;
-    }
 }
